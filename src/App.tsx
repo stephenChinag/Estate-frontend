@@ -1,17 +1,11 @@
 import "./App.css";
-import { Button } from "./components/ui/button";
+//import { Button } from "./components/ui/button";
+import { createBrowserRouter } from "react-router-dom";
+import Home from "./pages/Home";
 
 function App() {
-  return (
-    <Button
-      onClick={() => {
-        console.log("Clicked");
-      }}
-    >
-      {" "}
-      Click Me
-    </Button>
-  );
+  createBrowserRouter([{ path: "/", element: <Home /> }]);
+  return <div>Hello</div>;
 }
 
 export default App;
