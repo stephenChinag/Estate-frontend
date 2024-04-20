@@ -1,6 +1,5 @@
-import React from "react";
 import { Button } from "../ui/button";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function MainNav() {
   const navigate = useNavigate();
