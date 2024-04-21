@@ -4,21 +4,22 @@ import {
   RouterProvider,
   createBrowserRouter,
 } from "react-router-dom";
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
 import User from "./pages/User";
 import RootLayout from "./components/Layout/RootLayout";
 
 function App() {
   const router = createBrowserRouter([
     {
-      path: "/",
-      element: <RootLayout />,
-      children: [
-        { path: "/", element: <Home /> },
-        { path: "user-profile", element: <User /> },
-        { path: "*", element: <Navigate to="/" /> },
-      ],
+      path: "",
+      element: (
+        <RootLayout>
+          <Home />{" "}
+        </RootLayout>
+      ),
     },
+    { path: "user-profile", element: <User /> },
+    { path: "*", element: <Navigate to="/" /> },
   ]);
   return <RouterProvider router={router} />;
 }
