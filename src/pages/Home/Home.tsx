@@ -9,7 +9,7 @@ export default function Home() {
           <h1 className="text-5xl font-bold tracking-tight text-orange-600">
             Truck into a takway today
           </h1>
-          <span className="text-xl">Food is just a take awy</span>
+          <span className="text-xl">Food is just a takeaway</span>
         </div>
 
         <div className="grid md:grid-cols-2 gap-5">

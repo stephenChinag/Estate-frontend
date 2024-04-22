@@ -1,5 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function User() {
-  return <div>User</div>;
+  const [name, setName] = useState();
+
+  function onNameChangeHamdler(e: any) {
+    console.log(e.value.target);
+    setName(e.value.target);
+  }
+  return (
+    <div>
+      <input placeholder="name" onChange={onNameChangeHamdler} value={name} />
+    </div>
+  );
 }
