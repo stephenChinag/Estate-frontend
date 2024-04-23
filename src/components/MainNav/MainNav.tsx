@@ -1,15 +1,15 @@
-import Hero from "../Hero/Hero";
+import { useAuth0 } from "@auth0/auth0-react";
+
 import { Button } from "../ui/button";
-import { useNavigate } from "react-router-dom";
 
 export default function MainNav() {
-  const navigate = useNavigate();
+  const { loginWithRedirect } = useAuth0();
 
   return (
     <>
       <Button
-        onClick={() => {
-          navigate("/login");
+        onClick={async () => {
+          await loginWithRedirect();
         }}
         variant="ghost"
         className="font-bold hover:text-orange-500 hover:bg-white"
