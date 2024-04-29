@@ -5,7 +5,7 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 import "./styles/main.scss";
-import Siderbar from "./components/Sidebar/Siderbar";
+
 import UserDasboard from "./pages/UserDashboard/UserDasboard";
 import Login from "./pages/Login/Login";
 import SignUp from "./pages/Signup/Signup";

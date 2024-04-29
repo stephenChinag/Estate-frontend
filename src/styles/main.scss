@@ -1,8 +1,11 @@
 @import "./_variable";
 
 body {
-  background-color: rgb(76, 255, 21);
   color: black;
+  background: rgb(153, 87, 98);
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
 }
 p {
   color: black;
