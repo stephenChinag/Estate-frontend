@@ -8,18 +8,21 @@
   place-items: center;
   justify-content: center;
   margin: 0;
-  background: #000000;
+  background: #ffffff;
   font-family: "inter";
   color: #fdfdfd;
+  height: 50%;
+  overflow: hidden;
 
   .login-card {
     width: 400px;
     padding: 60px 30px 30px;
     border-radius: 16px;
-    background: #0e0d0d;
+    background: #ffffff;
     text-align: center;
     h2 {
       font-size: 36px;
+      color: #696f7a;
       font-weight: 600;
       margin: 0 0 30px;
     }
@@ -27,18 +30,35 @@
       width: 50%;
       margin-bottom: 20px;
     }
+    .login-form {
+      width: 100%;
+      margin: 0;
+      display: grid;
+    }
+    input {
+      color: #696f7a;
+      .control::placeholder {
+        color: #9f9d9e;
+      }
+    }
+    // .signup-forget {
+    //   display: flex;
+    //   justify-content: space-between;
+    //   padding-bottom: 20px;
+    //   a {
+    //     text-decoration: none;
+    //   }
+    //   .forget-password {
+    //     color: #0079ea;
+    //   }
+    //   .signup {
+    //     color: #0079ea;
+    //     font-weight: 500;
+    //     font-style: italic;
+    //   }
+    // }
   }
 }
-
-// .login-form {
-//   width: 100%;
-//   margin: 0;
-//   display: grid;
-// }
-
-// .login-form input.control::placeholder {
-//   color: #9f9d9e;
-// }
 
 .control {
   outline: none;
@@ -46,7 +66,7 @@
   height: 56px;
   padding: 0 16px;
   color: inherit;
-  background: #181919;
+  background: #f9f9fa;
   border: 0;
   border-radius: 6px;
   margin: 8px 0;

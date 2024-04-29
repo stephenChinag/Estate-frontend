@@ -1,16 +1,22 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import HomePage from "./pages/Home/HomePage";
+import {
+  Navigate,
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom";
+
 import Login from "./pages/Login/Login";
 import SignUp from "./pages/Signup/SignUp";
+import UserDasboard from "./pages/UserDashboard/UserDasboard";
 
 export default function App() {
   const route = createBrowserRouter([
     {
       path: "/",
-      element: <HomePage />,
+      element: <UserDasboard />,
     },
     { path: "/login", element: <Login /> },
     { path: "/signUp", element: <SignUp /> },
+    { path: "*", element: <Navigate to="/login" /> },
   ]);
   return <RouterProvider router={route} />;
 }
