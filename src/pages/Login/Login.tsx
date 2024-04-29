@@ -2,12 +2,19 @@ import { useState } from "react";
 import logo from "./logo.svg";
 import "./Login.scss";
 
+type PasswordStrengthProps = {
+  placeholder: string;
+  onChange: (value: string) => void;
+};
 const strengthLabels = ["weak", "medium", "medium", "strong"];
 
-export const PasswordStrength = ({ placeholder, onChange }) => {
+export const PasswordStrength = ({
+  placeholder,
+  onChange,
+}: PasswordStrengthProps) => {
   const [strength, setStrength] = useState("");
 
-  const getStrength = (password) => {
+  const getStrength = (password: string) => {
     let strengthIndicator = -1;
 
     if (/[a-z]/.test(password)) strengthIndicator++;
@@ -20,7 +27,7 @@ export const PasswordStrength = ({ placeholder, onChange }) => {
     return strengthLabels[strengthIndicator];
   };
 
-  const handleChange = (event) => {
+  const handleChange = (event: any) => {
     setStrength(getStrength(event.target.value));
     onChange(event.target.value);
   };
@@ -43,7 +50,7 @@ export const PasswordStrength = ({ placeholder, onChange }) => {
   );
 };
 const Login = () => {
-  const handleChange = (value) => console.log(value);
+  const handleChange = (value: any) => console.log(value);
 
   return (
     <div className="page">
@@ -54,11 +61,9 @@ const Login = () => {
           <div className="username">
             <input
               autoComplete="off"
-              spellCheck="false"
               className="control"
               type="email"
               placeholder="Email"
-              defaultValue="joe@gmail.com"
             />
             <div id="spinner" className="spinner"></div>
           </div>

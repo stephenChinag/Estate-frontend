@@ -17,7 +17,9 @@
   margin: 0;
   padding: 0;
 }
-
 body {
-  padding: 20px;
+  margin: 0;
+  background: #000000;
+  color: #f9f9f9;
+  font-family: "Euclid Circular A", "Poppins";
 }

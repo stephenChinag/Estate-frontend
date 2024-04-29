@@ -4,42 +4,41 @@
 }
 
 .page {
-  display: grid;
+  display: flex;
   place-items: center;
+  justify-content: center;
   margin: 0;
   background: #000000;
-  font-family: "Euclid Circular A", "Poppins";
+  font-family: "inter";
   color: #fdfdfd;
+
+  .login-card {
+    width: 400px;
+    padding: 60px 30px 30px;
+    border-radius: 16px;
+    background: #0e0d0d;
+    text-align: center;
+    h2 {
+      font-size: 36px;
+      font-weight: 600;
+      margin: 0 0 30px;
+    }
+    img {
+      width: 50%;
+      margin-bottom: 20px;
+    }
+  }
 }
 
-.login-card {
-  width: 400px;
-  padding: 60px 30px 30px;
-  border-radius: 16px;
-  background: #0e0d0d;
-  text-align: center;
-}
+// .login-form {
+//   width: 100%;
+//   margin: 0;
+//   display: grid;
+// }
 
-.login-card > h2 {
-  font-size: 36px;
-  font-weight: 600;
-  margin: 0 0 30px;
-}
-
-.login-card img {
-  width: 260px;
-  margin-bottom: 20px;
-}
-
-.login-form {
-  width: 100%;
-  margin: 0;
-  display: grid;
-}
-
-.login-form input.control::placeholder {
-  color: #9f9d9e;
-}
+// .login-form input.control::placeholder {
+//   color: #9f9d9e;
+// }
 
 .control {
   outline: none;
