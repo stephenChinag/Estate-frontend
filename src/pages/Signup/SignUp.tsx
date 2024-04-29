@@ -1,7 +1,6 @@
 import { useState } from "react";
-import logo from "./logo.svg";
-import "./Login.scss";
-import { Link } from "react-router-dom";
+import logo from "../../assets/logo.svg";
+import "./Signup.scss";
 
 type PasswordStrengthProps = {
   placeholder: string;
@@ -57,7 +56,7 @@ const SignUp = () => {
     <div className="page">
       <div className="login-card">
         <img src={logo} />
-        <h2>Login </h2>
+        <h2>Sign up </h2>
         <form className="login-form">
           <div className="username">
             <input

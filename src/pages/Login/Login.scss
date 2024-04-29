@@ -1,0 +1,14 @@
+.terms {
+  color: #696f7a;
+  a {
+    text-decoration: underline;
+    color: #696f7a;
+    &:hover {
+      background-color: #696f7a;
+      color: white;
+      padding: 4px;
+      border-radius: 4px;
+      transition: ease-in-out 1s;
+    }
+  }
+}
