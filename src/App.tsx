@@ -1,18 +1,13 @@
 // import "./App.css";
-import {
-  Navigate,
-  RouterProvider,
-  createBrowserRouter,
-} from "react-router-dom";
-import "./styles/main.scss";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import UserDasboard from "./pages/UserDashboard/UserDasboard";
 import Login from "./pages/Login/Login";
 import SignUp from "./pages/Signup/Signup";
 import Documents from "./pages/Document/Documents";
 import Shared from "./pages/Shared/Shared";
 import Setting from "./pages/Setting/Setting";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Siderbar from "./components/Sidebar/Siderbar";
 
 export default function App() {
   const route = createBrowserRouter([
@@ -20,7 +15,7 @@ export default function App() {
     { path: "/Signup", element: <SignUp /> },
     {
       path: "/",
-      element: <UserDasboard />,
+      element: <Siderbar />,
 
       children: [
         {
