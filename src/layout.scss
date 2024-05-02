@@ -7,7 +7,7 @@
   margin: 0 auto;
   padding: 0 20px;
   @include lg {
-    background-color: aqua;
+    background-color: rgb(182, 224, 224);
     max-width: 1280px;
   }
   @include md {
@@ -15,7 +15,7 @@
     max-width: 768px;
   }
   @include sm {
-    background-color: red;
+    background-color: rgb(255, 141, 141);
     max-width: 640px;
   }
 }
