@@ -1,5 +1,6 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
+import HomePage from "./pages/Home/homePage";
 import "./layout.scss";
 export default function App() {
   const router = createBrowserRouter([
@@ -15,7 +16,12 @@ export default function App() {
 
   return (
     <div className="layout">
-      <Navbar />
+      <div className="navbar">
+        <Navbar />
+      </div>
+      <div className="content">
+        <HomePage />
+      </div>
     </div>
   );
 }
