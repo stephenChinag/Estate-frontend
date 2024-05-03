@@ -24,12 +24,7 @@ const Navbar: React.FC<NavbarProps> = () => {
         <a href="/signout" className="register">
           Sign up
         </a>
-        <div
-          className="menuIcon"
-          onClick={() => {
-            setOpen((prev) => !prev);
-          }}
-        >
+        <div className="menuIcon" onClick={() => setOpen((prev) => !prev)}>
           <img src={menu} alt="burgerIcon" />
         </div>
 
@@ -40,9 +35,7 @@ const Navbar: React.FC<NavbarProps> = () => {
           <a href="/others"> Agents</a>
           <a href="/agent">Agent</a>
           <a href="/sign">Sign In</a>
-          <a href="/signout" className="register">
-            Sign up
-          </a>
+          <a href="/signout">Sign up</a>
         </div>
       </div>
     </nav>

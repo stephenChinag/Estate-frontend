@@ -46,7 +46,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    background-color: #fcf5f3;
+
     height: 100%;
 
     @include md {
@@ -64,6 +64,7 @@ nav {
     }
     .menuIcon {
       display: none;
+      z-index: 999;
       img {
         width: 36px;
         height: 36px;
@@ -77,11 +78,24 @@ nav {
       position: absolute;
       top: 0;
       right: -50%;
+      color: white;
       background-color: #000000;
       height: 100vh;
       width: 50%;
+      transition: all 1s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      &.active {
+        right: 0;
+      }
+
       @include sm {
-        right: 50%;
+        a {
+          display: initial;
+        }
       }
     }
   }
