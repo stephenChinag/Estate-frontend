@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import "./navbar.scss";
 import logo from "../../assets/logo.svg";
 import React from "react";
@@ -8,19 +7,21 @@ const Navbar: React.FC<NavbarProps> = () => {
   return (
     <nav>
       <div className="left">
-        <Link to="/" className="logo">
+        <a href="/" className="logo">
           <img src={logo} alt="estate logo" />
           <span>Zama dev</span>
-        </Link>
-        <Link to="/home">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/contact">Contact</Link>
-        <Link to="/others">Others</Link>
+        </a>
+        <a href="/home">Home</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/others"> Agents</a>
       </div>
       <div className="right">
-        <Link to="/agent">Agent</Link>
-        <Link to="/sign">Sign</Link>
-        <Link to="/signout">Sign Out</Link>
+        <a href="/agent">Agent</a>
+        <a href="/sign">Sign</a>
+        <a href="/signout" className="register">
+          Sign up
+        </a>
       </div>
     </nav>
   );
