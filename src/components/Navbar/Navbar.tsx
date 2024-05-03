@@ -1,10 +1,12 @@
 import "./navbar.scss";
 import logo from "../../assets/logo.svg";
-import React from "react";
+import React, { useState } from "react";
 import menu from "/menu.png";
 
 interface NavbarProps {}
 const Navbar: React.FC<NavbarProps> = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <nav>
       <div className="left">
@@ -22,10 +24,16 @@ const Navbar: React.FC<NavbarProps> = () => {
         <a href="/signout" className="register">
           Sign up
         </a>
-        <div className="menuIcon">
+        <div
+          className="menuIcon"
+          onClick={() => {
+            setOpen((prev) => !prev);
+          }}
+        >
           <img src={menu} alt="burgerIcon" />
         </div>
-        <div className="menu">
+
+        <div className={open ? "menu active" : "menu"}>
           <a href="/home">Home</a>
           <a href="/about">About</a>
           <a href="/contact">Contact</a>
