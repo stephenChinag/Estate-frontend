@@ -15,16 +15,16 @@ export default function HomePage() {
           <SearchBar />
           <div className="boxes">
             <div className="box">
-              <h1> 1</h1>
+              <h1> 16+</h1>
               <h2> Yeas Of Experience</h2>
             </div>
 
             <div className="box">
-              <h1> 2</h1>
+              <h1>200</h1>
               <h2> Award Gained</h2>
             </div>
             <div className="box">
-              <h1> 3</h1>
+              <h1> 2000+</h1>
               <h2> Property Ready</h2>
             </div>
           </div>
