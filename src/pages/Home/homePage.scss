@@ -10,7 +10,7 @@
       flex-direction: column;
       justify-content: center;
       gap: 50px;
-      background-color: bisque;
+      // background-color: bisque;
       height: 100%;
       @include lg {
         padding-right: 50px;
@@ -47,20 +47,23 @@
         }
       }
     }
-    .imageContainer {
-      flex: 2;
-      background-color: #fcf5f3;
-      position: relative;
-      display: flex;
-      align-items: center;
-      img {
-        width: 115%;
-        position: absolute;
-        right: 0;
-      }
-      @include lg {
-        width: 105%;
-      }
+  }
+  .imageContainer {
+    flex: 2;
+    background-color: #fcf5f3;
+    position: relative;
+    display: flex;
+    align-items: center;
+    @include md {
+      display: none;
+    }
+    img {
+      width: 115%;
+      position: absolute;
+      right: 0;
+    }
+    @include lg {
+      width: 105%;
     }
   }
 }
