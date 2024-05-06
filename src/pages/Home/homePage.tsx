@@ -13,6 +13,21 @@ export default function HomePage() {
             lucrative sale. Embrace the opportunity to elevate not
           </p>
           <SearchBar />
+          <div className="boxes">
+            <div className="box">
+              <h1> 1</h1>
+              <h2> Yeas Of Experience</h2>
+            </div>
+
+            <div className="box">
+              <h1> 2</h1>
+              <h2> Award Gained</h2>
+            </div>
+            <div className="box">
+              <h1> 3</h1>
+              <h2> Property Ready</h2>
+            </div>
+          </div>
         </div>
       </div>
       <div className="imageContainer">
