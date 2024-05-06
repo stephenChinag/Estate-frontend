@@ -1,5 +1,6 @@
 import "./homePage.scss";
 import logo from "../../assets/bg.png";
+import SearchBar from "../../components/SearchBar/SearchBar";
 export default function HomePage() {
   return (
     <div className="homepage">
@@ -11,6 +12,7 @@ export default function HomePage() {
             destined to command attention, admiration, and, ultimately, a
             lucrative sale. Embrace the opportunity to elevate not
           </p>
+          <SearchBar />
         </div>
       </div>
       <div className="imageContainer">
