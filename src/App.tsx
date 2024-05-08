@@ -1,5 +1,4 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Navbar from "./components/Navbar/Navbar";
 import HomePage from "./pages/Home/homePage";
 import ListPage from "./pages/listPage/listPage";
 import Layout from "./pages/layout/layout";
@@ -14,12 +13,12 @@ export default function App() {
         { path: "/", element: <HomePage /> },
         { path: "/list", element: <ListPage /> },
         { path: "/:id", element: <SinglePage /> },
+        { path: "/sign", element: <span> Sign In</span> },
+        { path: "/others", element: <span> Other Info</span> },
+        { path: "/agent", element: <span> Agent Info</span> },
       ],
     },
 
-    { path: "/others", element: <span> Other Info</span> },
-    { path: "/agent", element: <span> Agent Info</span> },
-    { path: "/sign", element: <span> Sign In</span> },
     { path: "/signout", element: <span> Sign Out</span> },
   ]);
 
