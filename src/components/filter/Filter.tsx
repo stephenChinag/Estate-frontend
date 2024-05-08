@@ -1,5 +1,5 @@
 import "./filter.scss";
-
+import search from "../../assets/search.png";
 export default function Filter() {
   return (
     <div className="filter">
@@ -43,6 +43,7 @@ export default function Filter() {
             id="minPrice"
             name="minPrice"
             placeholder="any"
+            minLength={0}
           />
         </div>
         <div className="item">
@@ -53,6 +54,9 @@ export default function Filter() {
           <label htmlFor="city"> Bedroom</label>
           <input type="text" id="city" name="city" placeholder="any" />
         </div>
+        <button>
+          <img src={search} />
+        </button>
       </div>
     </div>
   );

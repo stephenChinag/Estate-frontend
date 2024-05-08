@@ -30,9 +30,18 @@
   .bottom {
     display: flex;
     justify-content: space-between;
-    gap: 10px;
-    .item {
-      gap: 10px;
+    gap: 20px;
+
+    button {
+      width: 100px;
+      padding: 10px;
+      cursor: pointer;
+      border: none;
+      background-color: #fece51;
+      img {
+        width: 24px;
+        height: 24px;
+      }
     }
   }
 }

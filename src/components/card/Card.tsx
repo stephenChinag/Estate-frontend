@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 interface Item {
   id: number;
   title: string;
@@ -15,5 +17,9 @@ interface CardProps {
 }
 
 export default function Card({ item }: CardProps) {
-  return <div className="card">{item.title}</div>;
+  return (
+    <div className="card">
+      <Link to="">Card</Link>
+    </div>
+  );
 }
