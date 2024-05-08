@@ -1,1 +1,22 @@
+@import "../../responsive.scss";
 
+.card {
+  display: flex;
+  gap: 20px;
+  .imageContainer {
+    flex: 2;
+    height: 200px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+      @include md {
+        display: none;
+      }
+    }
+  }
+  .textContainer {
+    flex: 3;
+  }
+}
