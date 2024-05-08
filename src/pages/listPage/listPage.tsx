@@ -1,5 +1,5 @@
 import "./listPage.scss";
-import React from "react";
+
 import { listdata } from "../../lib/dummyData";
 import Filter from "../../components/filter/Filter";
 import Card from "../../components/card/Card";

@@ -1,8 +1,13 @@
-import React from "react";
-
 interface Item {
   id: number;
   title: string;
+  img: string;
+  bedroom: number;
+  bathroom: number;
+  price: number;
+  address: string;
+  latitude: number;
+  longitude: number;
 }
 
 interface CardProps {
@@ -10,10 +15,5 @@ interface CardProps {
 }
 
 export default function Card({ item }: CardProps) {
-  return (
-    <div className="card">
-      <h1>HWLLO</h1>
-      {item.title}
-    </div>
-  );
+  return <div className="card">{item.title}</div>;
 }
