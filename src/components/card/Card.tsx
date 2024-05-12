@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import location from "../../assets/location.png";
 import bath from "../../assets/bath.png";
 import bed from "../../assets/bed.png";
+import save from "../../assets/save.png";
+import chat from "../../assets/chat.png";
 import "./card.scss";
 interface Item {
   id: number;
@@ -34,7 +36,7 @@ export default function Card({ item }: CardProps) {
           <img src={location} alt="location" />
           <span> {item.address}</span>
         </p>
-        <p className="price">Naira {item.price} </p>
+        <p className="price">$ {item.price} </p>
         <div className="bottom">
           <div className="features">
             <div className="feature">
@@ -46,7 +48,14 @@ export default function Card({ item }: CardProps) {
               <span> {item.bathroom} bathroom </span>
             </div>
           </div>
-          <div className="icons"></div>
+          <div className="icons">
+            <div className="icon">
+              <img src={save} alt="" />
+            </div>
+            <div className="icon">
+              <img src={chat} alt="" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
