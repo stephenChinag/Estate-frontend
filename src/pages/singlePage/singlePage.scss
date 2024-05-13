@@ -5,6 +5,7 @@
     .wrapper {
       padding-right: 50px;
       .info {
+        margin-top: 50px;
         .top {
           display: flex;
           justify-content: space-between;
@@ -47,7 +48,7 @@
             align-items: center;
             border-radius: 10px;
             gap: 20px;
-            padding: 0 50px;
+            padding: 0 30px;
             font-weight: 600;
             flex-direction: column;
             img {

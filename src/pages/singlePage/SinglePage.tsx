@@ -8,14 +8,13 @@ export default function SinglePage() {
   const params = useParams();
   console.log(params);
 
-  const { title, address, price, description } = singlePostData;
+  const { title, address, price, description, images } = singlePostData;
   const { img, name } = userData;
   return (
     <div className="singlePage">
       <div className="details">
         <div className="wrapper">
-          first
-          <Slider />
+          <Slider images={images} />
           <div className="info">
             <div className="top">
               <div className="post">
