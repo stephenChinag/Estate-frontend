@@ -8,29 +8,41 @@ type SliderProps = {
 const Slider: React.FC<SliderProps> = ({ images }) => {
   const [imageIndex, setImageIndex] = useState<number | null>(null);
 
-  // const prevImage = () => {
-  //   setImageIndex((prevIndex) => Math.max(prevIndex - 1, 0)); // Fix: Ensure index doesn't go below 0
-  // };
-
-  // const nextImage = () => {
-  //   setImageIndex((prevIndex) => Math.min(prevIndex + 1, images.length - 1)); // Fix: Ensure index doesn't exceed image array length
-  // };
-
+  const changeSlider = (direction: any) => {
+    if (direction === "left") {
+      if (imageIndex === 0) {
+      } else {
+      }
+    } else {
+      if (imageIndex === images.length - 1) {
+      } else {
+      }
+    }
+  };
   return (
     <div className="slider">
       {imageIndex !== null && (
         <div className="fullSlider">
-          <div className="arrow">
+          <div
+            className="arrow"
+            onClick={() => {
+              changeSlider("left");
+            }}
+          >
             <img src={arrow} alt="arr" />
           </div>
           <div className="imgContainer">
-            <img src={images[0]} />
+            <img src={images[imageIndex]} />
           </div>
-          <div className="arrow">
+          <div
+            className="arrow"
+            onClick={() => {
+              changeSlider("right");
+            }}
+          >
             <img src={arrow} className="right" alt="arr" />
           </div>
           <div className="close" onClick={() => setImageIndex(null)}>
-            {" "}
             X
           </div>
         </div>
@@ -43,8 +55,8 @@ const Slider: React.FC<SliderProps> = ({ images }) => {
           <img
             src={img}
             alt=""
-            key={index}
-            onClick={() => setImageIndex(index)}
+            key={index + 1}
+            onClick={() => setImageIndex(index + 1)}
           />
         ))}
       </div>
