@@ -8,15 +8,26 @@ type SliderProps = {
 const Slider: React.FC<SliderProps> = ({ images }) => {
   const [imageIndex, setImageIndex] = useState<number | null>(null);
 
-  const changeSlider = (direction: any) => {
+  // const changeSlider = (direction: any) => {
+  //   if (direction === "left") {
+  //     if (imageIndex === 0) {
+  //     } else {
+  //     }
+  //   } else {
+  //     if (imageIndex === images.length - 1) {
+  //     } else {
+  //     }
+  //   }
+  // };
+  const changeSlider = (direction: string) => {
     if (direction === "left") {
-      if (imageIndex === 0) {
-      } else {
-      }
+      setImageIndex((prevIndex) =>
+        prevIndex === 0 ? images.length - 1 : (prevIndex || 0) - 1
+      );
     } else {
-      if (imageIndex === images.length - 1) {
-      } else {
-      }
+      setImageIndex((prevIndex) =>
+        prevIndex === images.length - 1 ? 0 : (prevIndex || 0) + 1
+      );
     }
   };
   return (
