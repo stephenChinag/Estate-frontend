@@ -1,5 +1,5 @@
 import React from "react";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import { MapContainer, TileLayer } from "react-leaflet";
 import "./map.scss";
 import "leaflet/dist/leaflet.css";
 import Pin from "../pin/pin";
@@ -8,7 +8,6 @@ type ItemType = {
   id: number;
   longitude: number;
   latitude: number;
-
   title: string;
   img: string;
   bedroom: number;

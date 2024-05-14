@@ -8,36 +8,52 @@ import Map from "../../components/map/map";
 import chat from "../../assets/chat.png";
 import save from "../../assets/save.png";
 import util from "../../assets/utility.png";
+import pet from "../../assets/pet.png";
 import bed from "../../assets/bed.png";
 import size from "../../assets/size.png";
 import bath from "../../assets/bath.png";
+import school from "../../assets/school.png";
+import bus from "../../assets/bus.png";
+import restaurant from "../../assets/restaurant.png";
 export default function SinglePage() {
   const params = useParams();
   console.log(params.id);
 
-  const { title, address, price, description, images } = singlePostData;
   const { img, name } = userData;
+  const mapItems = [
+    {
+      id: singlePostData.id,
+      latitude: singlePostData.latitude,
+      longitude: singlePostData.longitude,
+      title: singlePostData.title,
+      img: singlePostData.images[0], // Use the first image as a preview
+      bedroom: singlePostData.bedRooms,
+      bathroom: singlePostData.bathroom,
+      price: singlePostData.price,
+    },
+  ];
+
   return (
     <div className="singlePage">
       <div className="details">
         <div className="wrapper">
-          <Slider images={images} />
+          <Slider images={singlePostData.images} />
           <div className="info">
             <div className="top">
               <div className="post">
-                <h1> {title}</h1>
+                <h1> {singlePostData.title}</h1>
                 <div className="address">
                   <img src={location} alt="" />
-                  <span>{address}</span>
+                  <span>{singlePostData.address}</span>
                 </div>
-                <div className="price"> ${price}</div>
+                <div className="price"> ${singlePostData.price}</div>
               </div>
               <div className="user">
                 <img src={img} alt="user" />
                 <span>{name}</span>
               </div>
             </div>
-            <div className="bottom">{description}</div>
+            <div className="bottom">{singlePostData.description}</div>
           </div>
         </div>
       </div>
@@ -53,7 +69,7 @@ export default function SinglePage() {
               </div>
             </div>
             <div className="feature">
-              <img src={util} alt="" />
+              <img src={pet} alt="" />
               <div className="featureText">
                 <span> Pet Policy</span>
                 <p> Pet is Allpowed</p>
@@ -91,10 +107,32 @@ export default function SinglePage() {
             </div>
           </div>
           <p className="title">Nearby Places </p>
-          <div className="listHorizontal"></div>
+          <div className="listHorizontal">
+            <div className="feature">
+              <img src={school} alt="" />
+              <div className="featureText">
+                <span>School</span>
+                <p>250m away</p>
+              </div>
+            </div>
+            <div className="feature">
+              <img src={bus} alt="" />
+              <div className="featureText">
+                <span>Bus Stop</span>
+                <p>100m away</p>
+              </div>
+            </div>
+            <div className="feature">
+              <img src={restaurant} alt="" />
+              <div className="featureText">
+                <span>Restaurant</span>
+                <p>200m away</p>
+              </div>
+            </div>
+          </div>
           <p className="title">Location </p>
           <div className="mapContainer">
-            <Map items={[singlePostData]} />
+            <Map items={mapItems} />
           </div>
           <div className="buttons">
             <button>
