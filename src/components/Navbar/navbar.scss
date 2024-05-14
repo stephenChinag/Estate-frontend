@@ -56,15 +56,52 @@ nav {
       padding: 12px 10px;
       margin: 20px;
     }
+    .user {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+
+      img {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        border-radius: 50px;
+        margin-right: 20px;
+      }
+      span {
+        @include sm {
+          display: none;
+        }
+      }
+      .profile {
+        padding: 12px 24px;
+        background-color: #fece51;
+        border-radius: 10px;
+        border: none;
+        position: relative;
+        .notification {
+          position: absolute;
+          top: -8px;
+          right: -8px;
+          background-color: red;
+          color: white;
+          border-radius: 50%;
+          width: 26px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 26px;
+        }
+      }
+    }
     .register {
       background-color: yellow;
-
       padding: 10px;
       border-radius: 10px;
     }
     .menuIcon {
       display: none;
-      z-index: 999;
+      z-index: 9199;
       img {
         width: 36px;
         height: 36px;
@@ -87,6 +124,7 @@ nav {
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      z-index: 8188;
 
       &.active {
         right: 0;

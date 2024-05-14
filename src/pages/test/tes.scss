@@ -1,0 +1,31 @@
+// .inputTest {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   .input {
+//     display: flex;
+//     flex-direction: column;
+//   }
+// }
+
+.inputTest {
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  .input {
+    display: flex;
+
+    flex-direction: column;
+    label {
+      align-items: center;
+      justify-content: center;
+    }
+    input {
+      padding: 5px;
+      border: 1px solid brown;
+    }
+  }
+}

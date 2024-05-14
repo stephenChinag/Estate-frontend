@@ -15,23 +15,25 @@ import bath from "../../assets/bath.png";
 import school from "../../assets/school.png";
 import bus from "../../assets/bus.png";
 import restaurant from "../../assets/restaurant.png";
+
+const mapItems = [
+  {
+    id: singlePostData.id,
+    latitude: singlePostData.latitude,
+    longitude: singlePostData.longitude,
+    title: singlePostData.title,
+    img: singlePostData.images[0], // Use the first image as a preview
+    bedroom: singlePostData.bedRooms,
+    bathroom: singlePostData.bathroom,
+    price: singlePostData.price,
+  },
+];
+
 export default function SinglePage() {
   const params = useParams();
   console.log(params.id);
 
   const { img, name } = userData;
-  const mapItems = [
-    {
-      id: singlePostData.id,
-      latitude: singlePostData.latitude,
-      longitude: singlePostData.longitude,
-      title: singlePostData.title,
-      img: singlePostData.images[0], // Use the first image as a preview
-      bedroom: singlePostData.bedRooms,
-      bathroom: singlePostData.bathroom,
-      price: singlePostData.price,
-    },
-  ];
 
   return (
     <div className="singlePage">
