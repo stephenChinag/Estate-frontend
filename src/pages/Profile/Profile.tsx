@@ -12,13 +12,10 @@ function Profile() {
             <h1> User Info</h1>
             <button> Update Profile</button>
           </div>
-          <div className="title">
-            <h1> My List</h1>
-            <button> Create New Post</button>
-          </div>
+
           <div className="info">
             <span>
-              Avatar: <img src={steph} width={"30px"} alt="profilephoto" />
+              Avatar: <img src={steph} alt="profilephoto" />
             </span>
             <span>
               Username: <b> Stephen Chinag</b>
