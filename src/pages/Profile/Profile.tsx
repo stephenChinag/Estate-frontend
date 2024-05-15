@@ -2,6 +2,7 @@ import React from "react";
 
 import steph from "../../assets/steph.jpg";
 import "./profile.scss";
+import List from "../../components/list/List";
 function Profile() {
   return (
     <div className="profilePage">
@@ -9,7 +10,7 @@ function Profile() {
         <div className="wrapper">
           <div className="title">
             <h1> User Info</h1>
-            <button> Update PROFILE</button>
+            <button> Update Profile</button>
           </div>
           <div className="title">
             <h1> My List</h1>
@@ -27,12 +28,18 @@ function Profile() {
             </span>
           </div>
           <div className="title">
+            <h1> My List</h1>
+            <button> Create New Post</button>
+          </div>
+          <List />
+          <div className="title">
             <h1> Saved List</h1>
           </div>
+          <List />
         </div>
       </div>
       <div className="chatContainer">
-        <div className="wrapper"></div>
+        <div className="wrapper"> Container</div>
       </div>
     </div>
   );
