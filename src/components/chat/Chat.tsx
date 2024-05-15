@@ -41,7 +41,22 @@ export default function Chat() {
           </p>
         </div>
       </div>
-      <div className="chatBox"></div>
+      <div className="chatBox">
+        <div className="top">
+          <div className="user">
+            <img />
+            Stephen
+          </div>
+          <span className="close"> x</span>
+        </div>
+        <div className="center">
+          <div className="chatMessage">
+            <p>adbf sfjkjgbjbjfbf vjksfjbf</p>
+            <span> 1 hour ago</span>
+          </div>
+        </div>
+        <div className="bottom"></div>
+      </div>
     </div>
   );
 }
