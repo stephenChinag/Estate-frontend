@@ -1,6 +1,8 @@
+import { useState } from "react";
 import steph from "../../assets/steph.jpg";
 import "./chat.scss";
 export default function Chat() {
+  const [chat, setChat] = useState(null);
   return (
     <div className="chat">
       <div className="messages">
@@ -44,7 +46,7 @@ export default function Chat() {
       <div className="chatBox">
         <div className="top">
           <div className="user">
-            <img />
+            <img src={steph} />
             Stephen
           </div>
           <span className="close"> x</span>
@@ -54,8 +56,23 @@ export default function Chat() {
             <p>adbf sfjkjgbjbjfbf vjksfjbf</p>
             <span> 1 hour ago</span>
           </div>
+          <div className="chatMessage own">
+            <p>adbf sfjkjgbjbjfbf vjksfjbf</p>
+            <span> 1 hour ago</span>
+          </div>
+          <div className="chatMessage">
+            <p>adbf sfjkjgbjbjfbf vjksfjbf</p>
+            <span> 1 hour ago</span>
+          </div>
+          <div className="chatMessage own">
+            <p>adbf sfjkjgbjbjfbf vjksfjbf</p>
+            <span> 1 hour ago</span>
+          </div>
         </div>
-        <div className="bottom"></div>
+        <div className="bottom">
+          <textarea placeholder="enter your message" />
+          <button> Send</button>
+        </div>
       </div>
     </div>
   );
