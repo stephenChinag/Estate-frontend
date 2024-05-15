@@ -3,6 +3,7 @@ import React from "react";
 import steph from "../../assets/steph.jpg";
 import "./profile.scss";
 import List from "../../components/list/List";
+import Chat from "../../components/chat/Chat";
 function Profile() {
   return (
     <div className="profilePage">
@@ -36,7 +37,9 @@ function Profile() {
         </div>
       </div>
       <div className="chatContainer">
-        <div className="wrapper"> Container</div>
+        <div className="wrapper">
+          <Chat />
+        </div>
       </div>
     </div>
   );
