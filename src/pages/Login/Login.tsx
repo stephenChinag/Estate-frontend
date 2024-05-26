@@ -1,46 +1,44 @@
-import { Link } from "react-router-dom";
-import logo from "../../assets/logo.svg";
-import "./Login.scss";
-import { useState } from "react";
-const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+import "./login.scss";
+import { Link, useNavigate } from "react-router-dom";
+import logo from "../../assets/bg.png";
+import { FormEvent } from "react";
+import axios from "axios";
 
-  const handleChange = (value: any) => console.log(value);
-  const handleOnsubmit = () => {};
+function Login() {
+  const navigate = useNavigate();
+  const handleLoginSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get("email");
+    const password = formData.get("password");
+
+    try {
+      const res = await axios.post("http://localhost:8080/api/auth/login", {
+        email,
+        password,
+      });
+      console.log(res.data);
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
-    <div className="page">
-      <div className="login-card">
-        <img src={logo} />
-        <h2>Login in </h2>
-        <form className="login-form" method="post" onSubmit={handleOnsubmit}>
-          <div className="username">
-            <input
-              autoComplete="off"
-              className="control"
-              type="email"
-              placeholder="Email"
-            />
-            <input
-              autoComplete="off"
-              className="control"
-              type="password"
-              placeholder="Password"
-            />
-            <div id="spinner" className="spinner"></div>
-          </div>
-
-          <button className="control" type="button">
-            Join Now
-          </button>
+    <div className="login">
+      <div className="formContainer">
+        <form onSubmit={handleLoginSubmit}>
+          <h1>Welcome back</h1>
+          <input name="email" type="email" placeholder="Email" />
+          <input name="password" type="password" placeholder="Password" />
+          <button>Login</button>
+          <Link to="/register">{"Don't"} you have an account?</Link>
         </form>
-        <span className="terms">
-          Check our <i></i>
-          <Link to="/terms">terms and condition</Link>
-        </span>
+      </div>
+      <div className="imgContainer">
+        <img src={logo} alt="" />
       </div>
     </div>
   );
-};
+}
 
 export default Login;

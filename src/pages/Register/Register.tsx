@@ -1,39 +1,39 @@
-import "./register.scss";
+import React, { FormEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import logo from "../../assets/bg.png";
+import "./register.scss";
 import axios from "axios";
-import { useState } from "react";
-import apiRequest from "../../lib/apiRequest";
+interface FormData {
+  username: string;
+  email: string;
+  password: string;
+}
 
-function Register() {
-  const [error, setError] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-
+const Register: React.FC = () => {
+  const [error, setError] = useState();
   const navigate = useNavigate();
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setError("");
-    setIsLoading(true);
-    const formData = new FormData(e.target);
-
-    const username = formData.get("username");
-    const email = formData.get("email");
-    const password = formData.get("password");
+    const formdata = new FormData(e.currentTarget);
+    const username = formdata.get("username");
+    const email = formdata.get("email");
+    const password = formdata.get("password");
+    // console.log(username, email, password);
 
     try {
-      const res = await apiRequest.post("/auth/register", {
+      const res = await axios.post("http://localhost:8080/api/auth/register", {
         username,
         email,
         password,
       });
 
       navigate("/login");
-    } catch (err) {
-      setError(err.response.data.message);
-    } finally {
-      setIsLoading(false);
+    } catch (err: any) {
+      setError(err.message);
+      console.log(err);
     }
   };
+
   return (
     <div className="registerPage">
       <div className="formContainer">
@@ -42,16 +42,17 @@ function Register() {
           <input name="username" type="text" placeholder="Username" />
           <input name="email" type="text" placeholder="Email" />
           <input name="password" type="password" placeholder="Password" />
-          <button disabled={isLoading}>Register</button>
-          {error && <span>{error}</span>}
+          <button>Register</button>
+
+          <span> {error ? error : ""}</span>
           <Link to="/login">Do you have an account?</Link>
         </form>
       </div>
       <div className="imgContainer">
-        <img src="/bg.png" alt="" />
+        <img src={logo} alt="" />
       </div>
     </div>
   );
-}
+};
 
 export default Register;
