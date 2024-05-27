@@ -29,7 +29,7 @@ const Navbar: React.FC<NavbarProps> = () => {
             <span> Stephen Chinag</span>
             <Link to="/profile" className="profile">
               <div className="notification">3</div>
-              <span>Sign up</span>
+              <span>Profile</span>
             </Link>
           </div>
         ) : (

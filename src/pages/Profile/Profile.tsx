@@ -5,14 +5,20 @@ import "./profile.scss";
 import List from "../../components/list/List";
 import Chat from "../../components/chat/Chat";
 import apiRequest from "../../lib/apiReques";
+import { useNavigate } from "react-router-dom";
 function Profile() {
+  const navigate = useNavigate();
   const onLogOutHandler = async () => {
     try {
       // localStorage.getItem("user");
 
       const res = await apiRequest.post("/auth/logout");
+
+      localStorage.removeItem("user");
     } catch (err: any) {
       console.log(err.message);
+    } finally {
+      navigate("/");
     }
   };
   return (
