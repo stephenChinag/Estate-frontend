@@ -33,6 +33,8 @@ const Register: React.FC = () => {
         password,
       });
 
+      //  localStorage.setItem("user" , JSON.stringify())
+
       navigate("/login");
     } catch (err: any) {
       setError(err.message);
