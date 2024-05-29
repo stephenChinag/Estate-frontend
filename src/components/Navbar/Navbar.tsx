@@ -1,13 +1,15 @@
 import "./navbar.scss";
 import logo from "../../assets/logo.svg";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import step from "../../assets/steph.jpg";
 import { Link } from "react-router-dom";
 import menu from "/menu.png";
+import { AuthContext } from "../../context/AuthContext";
 
 interface NavbarProps {}
 
 const Navbar: React.FC<NavbarProps> = () => {
+  const { currentUser } = useContext(AuthContext);
   const [open, setOpen] = useState<boolean>(false);
   const user = true;
   return (
@@ -26,7 +28,7 @@ const Navbar: React.FC<NavbarProps> = () => {
         {user ? (
           <div className="user">
             <img src={step} />
-            <span> Stephen Chinag</span>
+            <span> {currentUser.username.toUpperCase()}</span>
             <Link to="/profile" className="profile">
               <div className="notification">3</div>
               <span>Profile</span>
