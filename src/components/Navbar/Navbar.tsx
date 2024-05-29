@@ -1,7 +1,7 @@
 import "./navbar.scss";
 import logo from "../../assets/logo.svg";
 import React, { useContext, useState } from "react";
-import step from "../../assets/steph.jpg";
+import noAvatar from "../../assets/noavatar.jpg";
 import { Link } from "react-router-dom";
 import menu from "/menu.png";
 import { AuthContext } from "../../context/AuthContext";
@@ -11,7 +11,12 @@ interface NavbarProps {}
 const Navbar: React.FC<NavbarProps> = () => {
   const { currentUser } = useContext(AuthContext);
   const [open, setOpen] = useState<boolean>(false);
-  const user = true;
+  console.log(currentUser);
+
+  // Check if currentUser exists and has the avatar property
+  // const userAvatar =
+  //   currentUser && currentUser.avatar ? currentUser.avatar : noAvatar;
+
   return (
     <nav>
       <div className="left">
@@ -25,10 +30,11 @@ const Navbar: React.FC<NavbarProps> = () => {
         <Link to="/others">Agents</Link>
       </div>
       <div className="right">
-        {user ? (
+        {currentUser ? (
           <div className="user">
-            <img src={step} />
-            <span> {currentUser.username.toUpperCase()}</span>
+            <img src={noAvatar} alt="user avatar" />
+            <span> {currentUser.username.toUpperCase() || ""}</span>
+
             <Link to="/profile" className="profile">
               <div className="notification">3</div>
               <span>Profile</span>

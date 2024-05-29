@@ -12,7 +12,7 @@ export default function App() {
       path: "/",
       element: <Layout />,
       children: [
-        { path: "/", element: <HomePage /> },
+        { path: "", element: <HomePage /> },
         { path: "/list", element: <ListPage /> },
         { path: "/:id", element: <SinglePage /> },
         { path: "login", element: <Login /> },

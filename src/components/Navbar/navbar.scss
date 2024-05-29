@@ -69,6 +69,8 @@ nav {
         margin-right: 20px;
       }
       span {
+        z-index: 111;
+        cursor: pointer;
         @include sm {
           display: none;
         }
@@ -101,7 +103,7 @@ nav {
     }
     .menuIcon {
       display: none;
-      z-index: 9199;
+      z-index: 999;
       img {
         width: 36px;
         height: 36px;

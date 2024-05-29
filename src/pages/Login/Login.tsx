@@ -1,14 +1,16 @@
 import "./login.scss";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/bg.png";
-import { FormEvent, useState } from "react";
-import axios from "axios";
+import { FormEvent, useContext, useState } from "react";
 import apiRequest from "../../lib/apiReques";
+import { AuthContext } from "../../context/AuthContext";
 
 function Login() {
   const [error, setError] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+
+  const { updateUser } = useContext(AuthContext);
 
   const handleLoginSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -22,9 +24,8 @@ function Login() {
         email,
         password,
       });
-      console.log(res.data);
-
-      localStorage.setItem("user", JSON.stringify(res.data));
+      // console.log(res.data);
+      updateUser(res.data);
       navigate("/");
     } catch (err: any) {
       console.log(err.message);
