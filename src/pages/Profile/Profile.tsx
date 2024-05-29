@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import steph from "../../assets/steph.jpg";
 import "./profile.scss";
@@ -6,8 +6,11 @@ import List from "../../components/list/List";
 import Chat from "../../components/chat/Chat";
 import apiRequest from "../../lib/apiReques";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 function Profile() {
   const navigate = useNavigate();
+
+  const { updateUser } = useContext(AuthContext);
   const onLogOutHandler = async () => {
     try {
       // localStorage.getItem("user");
@@ -15,10 +18,10 @@ function Profile() {
       const res = await apiRequest.post("/auth/logout");
 
       localStorage.removeItem("user");
-    } catch (err: any) {
-      console.log(err.message);
-    } finally {
+      updateUser(null);
       navigate("/");
+    } catch (err: any) {
+      console.log(err);
     }
   };
   return (

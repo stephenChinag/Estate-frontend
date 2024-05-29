@@ -16,7 +16,7 @@ const Navbar: React.FC<NavbarProps> = () => {
   // Check if currentUser exists and has the avatar property
   // const userAvatar =
   //   currentUser && currentUser.avatar ? currentUser.avatar : noAvatar;
-
+  console.log(currentUser.avatar);
   return (
     <nav>
       <div className="left">
@@ -32,8 +32,8 @@ const Navbar: React.FC<NavbarProps> = () => {
       <div className="right">
         {currentUser ? (
           <div className="user">
-            <img src={noAvatar} alt="user avatar" />
-            <span> {currentUser.username.toUpperCase() || ""}</span>
+            <img src={currentUser.avatar || noAvatar} alt="user avatar" />
+            <span> {currentUser.username}</span>
 
             <Link to="/profile" className="profile">
               <div className="notification">3</div>
@@ -42,8 +42,8 @@ const Navbar: React.FC<NavbarProps> = () => {
           </div>
         ) : (
           <>
-            <Link to="/sign">Sign In</Link>
-            <Link to="/signout" className="register">
+            <Link to="/login">Sign In</Link>
+            <Link to="/register" className="register">
               Sign up
             </Link>
           </>
