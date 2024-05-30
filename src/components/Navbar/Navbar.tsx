@@ -13,16 +13,12 @@ const Navbar: React.FC<NavbarProps> = () => {
   const [open, setOpen] = useState<boolean>(false);
   console.log(currentUser);
 
-  // Check if currentUser exists and has the avatar property
-  // const userAvatar =
-  //   currentUser && currentUser.avatar ? currentUser.avatar : noAvatar;
-  console.log(currentUser.avatar);
   return (
     <nav>
       <div className="left">
         <Link to="/" className="logo">
           <img src={logo} alt="estate logo" />
-          <span>Zama dev</span>
+          <span>Zama Houses</span>
         </Link>
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>

@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
-
-import steph from "../../assets/steph.jpg";
+import noAvatar from "../../assets/noavatar.jpg";
 import "./profile.scss";
 import List from "../../components/list/List";
 import Chat from "../../components/chat/Chat";
@@ -10,12 +9,14 @@ import { AuthContext } from "../../context/AuthContext";
 function Profile() {
   const navigate = useNavigate();
 
-  const { updateUser } = useContext(AuthContext);
+  const { updateUser, currentUser } = useContext(AuthContext);
+  // destructuring too get the email , username , avatar
+  const { email, username, avatar } = currentUser;
   const onLogOutHandler = async () => {
     try {
       // localStorage.getItem("user");
 
-      const res = await apiRequest.post("/auth/logout");
+      await apiRequest.post("/auth/logout");
 
       localStorage.removeItem("user");
       updateUser(null);
@@ -35,13 +36,14 @@ function Profile() {
 
           <div className="info">
             <span>
-              Avatar: <img src={steph} alt="profilephoto" />
+              Avatar:
+              <img src={avatar || noAvatar} alt="profilephoto" />
             </span>
             <span>
-              Username: <b> Stephen Chinag</b>
+              Username: <b> {username}</b>
             </span>
             <span>
-              E-mail: <b> stephenchinag@gmail.com</b>
+              E-mail: <b> {email}</b>
             </span>
             <button onClick={onLogOutHandler}> Logout</button>
           </div>
