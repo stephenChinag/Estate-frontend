@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import noAvatar from "../../assets/noavatar.jpg";
 import "./profile.scss";
 import List from "../../components/list/List";
@@ -10,8 +10,7 @@ function Profile() {
   const navigate = useNavigate();
 
   const { updateUser, currentUser } = useContext(AuthContext);
-  // destructuring too get the email , username , avatar
-  const { email, username, avatar } = currentUser;
+
   const onLogOutHandler = async () => {
     try {
       // localStorage.getItem("user");
@@ -31,19 +30,22 @@ function Profile() {
         <div className="wrapper">
           <div className="title">
             <h1> User Info</h1>
-            <button> Update Profile</button>
+            <button onClick={() => navigate("/profile/update")}>
+              {" "}
+              Update Profile
+            </button>
           </div>
 
           <div className="info">
             <span>
               Avatar:
-              <img src={avatar || noAvatar} alt="profilephoto" />
+              <img src={currentUser.avatar || noAvatar} alt="profilephoto" />
             </span>
             <span>
-              Username: <b> {username}</b>
+              Username: <b> {currentUser.username}</b>
             </span>
             <span>
-              E-mail: <b> {email}</b>
+              E-mail: <b> {currentUser.email}</b>
             </span>
             <button onClick={onLogOutHandler}> Logout</button>
           </div>
