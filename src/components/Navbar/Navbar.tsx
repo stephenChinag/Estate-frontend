@@ -11,7 +11,6 @@ interface NavbarProps {}
 const Navbar: React.FC<NavbarProps> = () => {
   const { currentUser } = useContext(AuthContext);
   const [open, setOpen] = useState<boolean>(false);
-  console.log(currentUser);
 
   return (
     <nav>
