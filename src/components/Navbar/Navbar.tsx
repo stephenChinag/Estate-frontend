@@ -54,7 +54,7 @@ const Navbar: React.FC<NavbarProps> = () => {
           <Link to="/contact">Contact</Link>
           <Link to="/others">Agents</Link>
           <Link to="/agent">Agent</Link>
-          <Link to="/sign">Sign In</Link>
+          <Link to="/login">Sign In</Link>
           <Link to="/signout">Sign up</Link>
         </div>
       </div>

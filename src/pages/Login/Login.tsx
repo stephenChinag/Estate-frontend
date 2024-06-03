@@ -4,14 +4,16 @@ import logo from "../../assets/bg.png";
 import { FormEvent, useContext, useState } from "react";
 import apiRequest from "../../lib/apiReques";
 import { AuthContext } from "../../context/AuthContext";
+import usePasswordToggle from "../../hooks/usePasswordToggle";
 
 function Login() {
   const [error, setError] = useState();
+
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
-
+  const [password, setPassword] = useState("");
   const { updateUser } = useContext(AuthContext);
-
+  const { visible, togglePasswordVisibility } = usePasswordToggle();
   const handleLoginSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
@@ -42,11 +44,15 @@ function Login() {
           <input name="email" required type="email" placeholder="Email" />
           <input
             name="password"
-            type="password"
+            type={visible ? "text" : "password"}
+            value={password}
             required
             placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
           />
-
+          <button type="button" onClick={togglePasswordVisibility}>
+            {visible ? "Hide" : "Show"}
+          </button>
           {error && <span> {error}</span>}
           <button disabled={isLoading}>Login</button>
 
