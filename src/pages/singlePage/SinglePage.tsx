@@ -45,13 +45,13 @@ export default function SinglePage() {
               <div className="post">
                 <h1> {singlePostData.title}</h1>
                 <div className="address">
-                  <img src={location} alt="" />
+                  <img src={location} alt="" loading="lazy" />
                   <span>{singlePostData.address}</span>
                 </div>
                 <div className="price"> ${singlePostData.price}</div>
               </div>
               <div className="user">
-                <img src={img} alt="user" />
+                <img src={img} alt="user" loading="lazy" />
                 <span>{name}</span>
               </div>
             </div>
@@ -64,7 +64,7 @@ export default function SinglePage() {
           <p className="title">General </p>
           <div className="listVertical">
             <div className="feature">
-              <img src={util} alt="" />
+              <img src={util} alt="" loading="lazy" />
               <div className="featureText">
                 <span> Utilities</span>
                 <p> Renter is responsible</p>
@@ -96,11 +96,11 @@ export default function SinglePage() {
           <p className="title">Room Sizes </p>
           <div className="sizes">
             <div className="size">
-              <img src={size} alt="" />
+              <img src={size} alt="" loading="lazy" />
               <span>80 sqft</span>
             </div>
             <div className="size">
-              <img src={bed} alt="" />
+              <img src={bed} alt="" loading="lazy" />
               <span>2 beds</span>
             </div>
             <div className="size">

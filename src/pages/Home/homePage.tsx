@@ -35,7 +35,7 @@ export default function HomePage() {
         </div>
       </div>
       <div className="imageContainer">
-        <img src={logo} alt="image" />
+        <img src={logo} alt="image" loading="lazy" />
       </div>
     </div>
   );

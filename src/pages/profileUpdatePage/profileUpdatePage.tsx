@@ -22,6 +22,7 @@ function ProfileUpdatePage() {
         username,
         email,
         password,
+        avatar,
       });
 
       updateUser(res.data.user);
@@ -67,7 +68,12 @@ function ProfileUpdatePage() {
         </form>
       </div>
       <div className="sideContainer">
-        <img src={avatar || noAvatar} alt="" className="avatar" />
+        <img
+          src={avatar || noAvatar}
+          alt=""
+          className="avatar"
+          loading="lazy"
+        />
 
         <UploadWidget
           uwConfig={{

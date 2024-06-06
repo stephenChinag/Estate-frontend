@@ -26,14 +26,14 @@ export default function Card({ item }: CardProps) {
   return (
     <div className="card">
       <Link to={`/${item.id}`} className="imageContainer">
-        <img src={item.img} />
+        <img src={item.img} alt="item" loading="lazy" />
       </Link>
       <div className="textContainer">
         <h2 className="title">
           <Link to={`/${item.id}`}>{item.title}</Link>
         </h2>
         <p className="address">
-          <img src={location} alt="location" />
+          <img src={location} alt="location" loading="lazy" />
           <span> {item.address}</span>
         </p>
         <p className="price">$ {item.price} </p>
