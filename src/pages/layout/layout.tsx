@@ -1,8 +1,8 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 
 import "./layout.scss";
-import { Navigate, Outlet, useNavigate } from "react-router-dom";
+import { Navigate, Outlet, useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 export default function Layout() {
   return (
@@ -18,7 +18,7 @@ export default function Layout() {
 }
 
 export function RequireAuth() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const { currentUser } = useContext(AuthContext);
 

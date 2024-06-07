@@ -2,8 +2,8 @@ import React, { FormEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/bg.png";
 import "./register.scss";
-import axios from "axios";
 import apiRequest from "../../lib/apiReques";
+
 interface FormData {
   username: string;
   email: string;
@@ -33,8 +33,6 @@ const Register: React.FC = () => {
         password,
       });
 
-      //  localStorage.setItem("user" , JSON.stringify())
-
       navigate("/login");
     } catch (err: any) {
       setError(err.message);
@@ -59,7 +57,7 @@ const Register: React.FC = () => {
         </form>
       </div>
       <div className="imgContainer">
-        <img src={logo} alt="" />
+        <img src={logo} alt="" loading="lazy" />
       </div>
     </div>
   );

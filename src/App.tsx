@@ -7,6 +7,7 @@ import Profile from "./pages/Profile/Profile";
 import Register from "./pages/Register/Register";
 import Login from "./pages/login/login";
 import ProfileUpdatePage from "./pages/profileUpdatePage/profileUpdatePage.tsx";
+
 export default function App() {
   const router = createBrowserRouter([
     {

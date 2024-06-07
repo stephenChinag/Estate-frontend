@@ -125,7 +125,7 @@ export default function SinglePage() {
               </div>
             </div>
             <div className="feature">
-              <img src={restaurant} alt="" />
+              <img src={restaurant} alt="" loading="lazy" />
               <div className="featureText">
                 <span>Restaurant</span>
                 <p>200m away</p>
@@ -142,7 +142,7 @@ export default function SinglePage() {
               send am message
             </button>
             <button>
-              <img src={save} alt="" />
+              <img src={save} alt="" loading="lazy" />
               Save the Place
             </button>
           </div>
