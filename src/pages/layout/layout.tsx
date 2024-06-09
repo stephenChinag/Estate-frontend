@@ -2,7 +2,7 @@ import { useContext } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 
 import "./layout.scss";
-import { Navigate, Outlet, useNavigate, useParams } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 export default function Layout() {
   return (
