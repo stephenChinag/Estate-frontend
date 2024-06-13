@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { FormEvent, useState } from "react";
 import "./newPostPage.scss";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
@@ -6,9 +6,9 @@ import apiRequest from "../../lib/apiReques";
 // import UploadWidget from "../../components/uploadWidget/UploadWidget";
 import { useNavigate } from "react-router-dom";
 
-function NewPostPage() {
+const NewPostPage: React.FC = () => {
   const [value, setValue] = useState("");
-  //   const [images, setImages] = useState([]);
+  const [images, setImages] = useState([]);
   //   const [error, setError] = useState("");
 
   //   const navigate = useNavigate()
@@ -51,12 +51,50 @@ function NewPostPage() {
   //     }
   //   };
 
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    const target = e.target as HTMLFormElement;
+    const formData = new FormData(target);
+    const inputs = Object.fromEntries(formData);
+
+    console.log(inputs);
+
+    try {
+      const res = await apiRequest.post("/posts", {
+        postData: {
+          title: inputs.title,
+          price: parseInt(inputs.price as string),
+          address: inputs.address,
+          city: inputs.city,
+          bedroom: parseInt(inputs.bedroom as string),
+          bathroom: parseInt(inputs.bathroom as string),
+          type: inputs.type,
+          property: inputs.property,
+          latitude: inputs.latitude,
+          longitude: inputs.longitude,
+          images: images,
+        },
+        postDetail: {
+          desc: value,
+          utilities: inputs.utilities,
+          pet: inputs.pet,
+          income: inputs.income,
+          size: parseInt(inputs.size as string),
+          school: parseInt(inputs.school as string),
+          bus: parseInt(inputs.bus as string),
+          restaurant: parseInt(inputs.restaurant as string),
+        },
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <div className="newPostPage">
       <div className="formContainer">
         <h1>Add New Post</h1>
         <div className="wrapper">
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="item">
               <label htmlFor="title">Title</label>
               <input id="title" name="title" type="text" />
@@ -71,7 +109,6 @@ function NewPostPage() {
             </div>
             <div className="item description">
               <label htmlFor="desc">Description</label>
-              {/* <ReactQuill theme="snow" onChange={setValue} value={value} /> */}
               <ReactQuill theme="snow" onChange={setValue} value={value} />
             </div>
             <div className="item">
@@ -174,6 +211,6 @@ function NewPostPage() {
       </div>
     </div>
   );
-}
+};
 
 export default NewPostPage;
