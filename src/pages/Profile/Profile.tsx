@@ -1,10 +1,10 @@
-import React, { useContext, useEffect } from "react";
+import { useContext } from "react";
 import noAvatar from "../../assets/noavatar.jpg";
 import "./profile.scss";
 import List from "../../components/list/List";
 import Chat from "../../components/chat/Chat";
 import apiRequest from "../../lib/apiReques";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 function Profile() {
   const navigate = useNavigate();
@@ -24,6 +24,10 @@ function Profile() {
       console.log(err);
     }
   };
+
+  // const createPostHandler = () => {
+  //   navigate("/add");
+  // };
   return (
     <div className="profilePage">
       <div className="details">
@@ -51,7 +55,10 @@ function Profile() {
           </div>
           <div className="title">
             <h1> My List</h1>
-            <button> Create New Post</button>
+
+            <Link to="/add">
+              <button> Create New Post</button>
+            </Link>
           </div>
           <List />
           <div className="title">

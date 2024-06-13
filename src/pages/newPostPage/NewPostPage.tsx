@@ -1,13 +1,13 @@
 import { useState } from "react";
 import "./newPostPage.scss";
-// import ReactQuill from "react-quill";
-// import "react-quill/dist/quill.snow.css";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 import apiRequest from "../../lib/apiReques";
 // import UploadWidget from "../../components/uploadWidget/UploadWidget";
 import { useNavigate } from "react-router-dom";
 
 function NewPostPage() {
-  //   const [value, setValue] = useState("");
+  const [value, setValue] = useState("");
   //   const [images, setImages] = useState([]);
   //   const [error, setError] = useState("");
 
@@ -72,6 +72,7 @@ function NewPostPage() {
             <div className="item description">
               <label htmlFor="desc">Description</label>
               {/* <ReactQuill theme="snow" onChange={setValue} value={value} /> */}
+              <ReactQuill theme="snow" onChange={setValue} value={value} />
             </div>
             <div className="item">
               <label htmlFor="city">City</label>
