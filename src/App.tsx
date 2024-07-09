@@ -5,7 +5,7 @@ import Layout, { RequireAuth } from "./pages/layout/layout";
 import SinglePage from "./pages/singlePage/SinglePage";
 import Profile from "./pages/Profile/Profile";
 import Register from "./pages/Register/Register";
-import Login from "./pages/login/login";
+import Login from "./pages/Login/Login.tsx";
 import ProfileUpdatePage from "./pages/profileUpdatePage/profileUpdatePage.tsx";
 import NewPostPage from "./pages/newPostPage/NewPostPage.tsx";
 

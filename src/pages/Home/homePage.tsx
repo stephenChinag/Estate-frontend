@@ -1,6 +1,6 @@
 import "./homePage.scss";
 import logo from "../../assets/bg.png";
-import SearchBar from "../../components/SearchBar/SearchBar";
+import SearchBar from "../../components/searchBar/SearchBar";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 export default function HomePage() {
