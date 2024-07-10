@@ -62,20 +62,20 @@ export default function Chat() {
           </div>
           <div className="center">
             <div className="chatMessage">
-              <p>adbf sfjkjgbjbjfbf vjksfjbf</p>
+              <p> First Messaage </p>
               <span> 1 hour ago</span>
             </div>
             <div className="chatMessage own">
-              <p>adbf sfjkjgbjbjfbf vjksfjbf</p>
-              <span> 1 hour ago</span>
+              <p>Second message </p>
+              <span>2 hour ago</span>
             </div>
             <div className="chatMessage">
-              <p>adbf sfjkjgbjbjfbf vjksfjbf</p>
-              <span> 1 hour ago</span>
+              <p> First Message </p>
+              <span> 3 hour ago</span>
             </div>
             <div className="chatMessage own">
-              <p>adbf sfjkjgbjbjfbf vjksfjbf</p>
-              <span> 1 hour ago</span>
+              <p> Second Message </p>
+              <span> 4 hour ago</span>
             </div>
           </div>
           <div className="bottom">

@@ -11,7 +11,7 @@ interface FormData {
 }
 
 const Register: React.FC = () => {
-  const [error, setError] = useState();
+  const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -35,7 +35,7 @@ const Register: React.FC = () => {
 
       navigate("/login");
     } catch (err: any) {
-      setError(err.message);
+      setError("Please make sure the all input a filled ");
       console.log(err);
     } finally {
       setIsLoading(false);

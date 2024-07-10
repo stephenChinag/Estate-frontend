@@ -7,7 +7,7 @@ import { AuthContext } from "../../context/AuthContext";
 import usePasswordToggle from "../../hooks/usePasswordToggle";
 
 function Login() {
-  const [error, setError] = useState();
+  const [error, setError] = useState("");
 
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
@@ -31,7 +31,7 @@ function Login() {
       navigate("/");
     } catch (err: any) {
       console.log(err.message);
-      setError(err.message);
+      setError("invalid Username or password");
     } finally {
       setIsLoading(false);
     }

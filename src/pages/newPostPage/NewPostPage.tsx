@@ -3,7 +3,7 @@ import "./newPostPage.scss";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import apiRequest from "../../lib/apiReques";
-// import UploadWidget from "../../components/uploadWidget/UploadWidget";
+import UploadWidget from "../../components/uploadWidget/upload";
 import { useNavigate } from "react-router-dom";
 
 const NewPostPage: React.FC = () => {
@@ -196,7 +196,7 @@ const NewPostPage: React.FC = () => {
         </div>
       </div>
       <div className="sideContainer">
-        {/* {images.map((image, index) => (
+        {images.map((image, index) => (
           <img src={image} key={index} alt="" />
         ))}
         <UploadWidget
@@ -207,7 +207,7 @@ const NewPostPage: React.FC = () => {
             folder: "posts",
           }}
           setState={setImages}
-        /> */}
+        />
       </div>
     </div>
   );
