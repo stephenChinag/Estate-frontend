@@ -2,54 +2,15 @@ import React, { FormEvent, useState } from "react";
 import "./newPostPage.scss";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import apiRequest from "../../lib/apiReques";
+import apiRequest from "../../lib/apiRequest";
 import UploadWidget from "../../components/uploadWidget/upload";
 import { useNavigate } from "react-router-dom";
+import { htmlToText } from "html-to-text";
 
 const NewPostPage: React.FC = () => {
   const [value, setValue] = useState("");
   const [images, setImages] = useState([]);
-  //   const [error, setError] = useState("");
-
-  //   const navigate = useNavigate()
-
-  //   const handleSubmit = async (e) => {
-  //     e.preventDefault();
-  //     const formData = new FormData(e.target);
-  //     const inputs = Object.fromEntries(formData);
-
-  //     try {
-  //       const res = await apiRequest.post("/posts", {
-  //         postData: {
-  //           title: inputs.title,
-  //           price: parseInt(inputs.price),
-  //           address: inputs.address,
-  //           city: inputs.city,
-  //           bedroom: parseInt(inputs.bedroom),
-  //           bathroom: parseInt(inputs.bathroom),
-  //           type: inputs.type,
-  //           property: inputs.property,
-  //           latitude: inputs.latitude,
-  //           longitude: inputs.longitude,
-  //           images: images,
-  //         },
-  //         postDetail: {
-  //           desc: value,
-  //           utilities: inputs.utilities,
-  //           pet: inputs.pet,
-  //           income: inputs.income,
-  //           size: parseInt(inputs.size),
-  //           school: parseInt(inputs.school),
-  //           bus: parseInt(inputs.bus),
-  //           restaurant: parseInt(inputs.restaurant),
-  //         },
-  //       });
-  //       navigate("/"+res.data.id)
-  //     } catch (err) {
-  //       console.log(err);
-  //       setError(error);
-  //     }
-  //   };
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -59,34 +20,42 @@ const NewPostPage: React.FC = () => {
 
     console.log(inputs);
 
+    const postData = {
+      title: inputs.title,
+      price: parseInt(inputs.price as string),
+      address: inputs.address,
+      city: inputs.city,
+      bedroom: parseInt(inputs.bedroom as string),
+      bathroom: parseInt(inputs.bathroom as string),
+      type: inputs.type,
+      property: inputs.property,
+      latitude: inputs.latitude,
+      longitude: inputs.longitude,
+      images: images,
+    };
+
+    const postDetail = {
+      desc: htmlToText(value),
+      utilities: inputs.utilities,
+      pet: inputs.pet,
+      income: inputs.income,
+      size: parseInt(inputs.size as string),
+      school: parseInt(inputs.school as string),
+      bus: parseInt(inputs.bus as string),
+      restaurant: parseInt(inputs.restaurant as string),
+    };
+
+    console.log("Post Data:", postData);
+    console.log("Post Detail:", postDetail);
+
     try {
-      const res = await apiRequest.post("/posts", {
-        postData: {
-          title: inputs.title,
-          price: parseInt(inputs.price as string),
-          address: inputs.address,
-          city: inputs.city,
-          bedroom: parseInt(inputs.bedroom as string),
-          bathroom: parseInt(inputs.bathroom as string),
-          type: inputs.type,
-          property: inputs.property,
-          latitude: inputs.latitude,
-          longitude: inputs.longitude,
-          images: images,
-        },
-        postDetail: {
-          desc: value,
-          utilities: inputs.utilities,
-          pet: inputs.pet,
-          income: inputs.income,
-          size: parseInt(inputs.size as string),
-          school: parseInt(inputs.school as string),
-          bus: parseInt(inputs.bus as string),
-          restaurant: parseInt(inputs.restaurant as string),
-        },
-      });
-    } catch (err) {
-      console.log(err);
+      const res = await apiRequest.post("/posts", { postData, postDetail });
+
+      console.log("Response:", res.data);
+      console.log(res.data.id);
+      navigate("/" + res.data.id);
+    } catch (err: any) {
+      console.error("Error:", err.response ? err.response.data : err.message);
     }
   };
   return (
@@ -97,15 +66,15 @@ const NewPostPage: React.FC = () => {
           <form onSubmit={handleSubmit}>
             <div className="item">
               <label htmlFor="title">Title</label>
-              <input id="title" name="title" type="text" />
+              <input id="title" name="title" type="text" required />
             </div>
             <div className="item">
               <label htmlFor="price">Price</label>
-              <input id="price" name="price" type="number" />
+              <input id="price" name="price" type="number" required />
             </div>
             <div className="item">
               <label htmlFor="address">Address</label>
-              <input id="address" name="address" type="text" />
+              <input id="address" name="address" type="text" required />
             </div>
             <div className="item description">
               <label htmlFor="desc">Description</label>
@@ -113,23 +82,35 @@ const NewPostPage: React.FC = () => {
             </div>
             <div className="item">
               <label htmlFor="city">City</label>
-              <input id="city" name="city" type="text" />
+              <input id="city" name="city" type="text" required />
             </div>
             <div className="item">
               <label htmlFor="bedroom">Bedroom Number</label>
-              <input min={1} id="bedroom" name="bedroom" type="number" />
+              <input
+                min={1}
+                id="bedroom"
+                name="bedroom"
+                type="number"
+                required
+              />
             </div>
             <div className="item">
               <label htmlFor="bathroom">Bathroom Number</label>
-              <input min={1} id="bathroom" name="bathroom" type="number" />
+              <input
+                min={1}
+                id="bathroom"
+                name="bathroom"
+                type="number"
+                required
+              />
             </div>
             <div className="item">
               <label htmlFor="latitude">Latitude</label>
-              <input id="latitude" name="latitude" type="text" />
+              <input id="latitude" name="latitude" type="text" required />
             </div>
             <div className="item">
               <label htmlFor="longitude">Longitude</label>
-              <input id="longitude" name="longitude" type="text" />
+              <input id="longitude" name="longitude" type="text" required />
             </div>
             <div className="item">
               <label htmlFor="type">Type</label>
@@ -168,6 +149,7 @@ const NewPostPage: React.FC = () => {
             <div className="item">
               <label htmlFor="income">Income Policy</label>
               <input
+                required
                 id="income"
                 name="income"
                 type="text"

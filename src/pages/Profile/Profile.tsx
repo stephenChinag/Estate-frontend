@@ -3,7 +3,7 @@ import noAvatar from "../../assets/noavatar.jpg";
 import "./profile.scss";
 import List from "../../components/list/List";
 import Chat from "../../components/chat/Chat";
-import apiRequest from "../../lib/apiReques";
+import apiRequest from "../../lib/apiRequest";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 function Profile() {

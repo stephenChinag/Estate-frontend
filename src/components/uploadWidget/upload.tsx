@@ -14,7 +14,7 @@ declare global {
 // Create a context to manage the script loading state
 const CloudinaryScriptContext = createContext<any>(null); // Specify the context value type
 
-function UploadWidget({ uwConfig, setPublicId, setAvatar }: UploadWidgetProps) {
+function UploadWidget({ uwConfig, setPublicId, setState }: UploadWidgetProps) {
   const [loaded, setLoaded] = useState<boolean>(false); // Specify the type for loaded state
 
   useEffect(() => {
@@ -46,7 +46,7 @@ function UploadWidget({ uwConfig, setPublicId, setAvatar }: UploadWidgetProps) {
             console.log("Done! Here is the image info: ", result.info);
             // setPublicId(result.info.public_id);
 
-            setAvatar(result.info.secure_url);
+            setState((prev: any) => [...prev, result.info.secure_url]);
           }
         }
       );

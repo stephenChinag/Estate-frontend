@@ -8,7 +8,8 @@ import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login.tsx";
 import ProfileUpdatePage from "./pages/profileUpdatePage/profileUpdatePage.tsx";
 import NewPostPage from "./pages/newPostPage/NewPostPage.tsx";
-
+import { singlePageLoader } from "./lib/loaders.tsx";
+// import { singlePageLoader } from "../src/lib/loaders.js";
 export default function App() {
   const router = createBrowserRouter([
     {
@@ -18,7 +19,7 @@ export default function App() {
         { path: "", element: <HomePage /> },
 
         { path: "/list", element: <ListPage /> },
-        { path: "/:id", element: <SinglePage /> },
+        { path: "/:id", element: <SinglePage />, loader: singlePageLoader },
         { path: "login", element: <Login /> },
         { path: "/register", element: <Register /> },
       ],

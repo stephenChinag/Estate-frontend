@@ -2,7 +2,7 @@ import React, { FormEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/bg.png";
 import "./register.scss";
-import apiRequest from "../../lib/apiReques";
+import apiRequest from "../../lib/apiRequest";
 
 interface FormData {
   username: string;
@@ -35,7 +35,7 @@ const Register: React.FC = () => {
 
       navigate("/login");
     } catch (err: any) {
-      setError("Please make sure the all input a filled ");
+      setError("Please make sure the all input a filled");
       console.log(err);
     } finally {
       setIsLoading(false);

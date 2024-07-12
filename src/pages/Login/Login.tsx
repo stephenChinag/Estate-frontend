@@ -2,7 +2,7 @@ import "./login.scss";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/bg.png";
 import { FormEvent, useContext, useState } from "react";
-import apiRequest from "../../lib/apiReques";
+import apiRequest from "../../lib/apiRequest";
 import { AuthContext } from "../../context/AuthContext";
 import usePasswordToggle from "../../hooks/usePasswordToggle";
 

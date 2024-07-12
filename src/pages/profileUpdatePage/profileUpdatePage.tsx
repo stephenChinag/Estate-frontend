@@ -2,14 +2,14 @@ import { useContext, FormEvent, useState } from "react";
 import "./profileUpdatePage.scss";
 import { AuthContext } from "../../context/AuthContext";
 import noAvatar from "../../assets/noavatar.jpg";
-import apiRequest from "../../lib/apiReques";
+import apiRequest from "../../lib/apiRequest";
 import { useNavigate } from "react-router-dom";
 import UploadWidget from "../../components/uploadWidget/upload";
 
 function ProfileUpdatePage() {
   const { currentUser, updateUser } = useContext(AuthContext);
   const [error, setError] = useState("");
-  const [avatar, setAvatar] = useState(currentUser.avatar);
+  const [avatar, setAvatar] = useState([]);
   const navigate = useNavigate();
 
   const HandleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -22,7 +22,7 @@ function ProfileUpdatePage() {
         username,
         email,
         password,
-        avatar,
+        avatar: avatar[0],
       });
 
       updateUser(res.data.user);
@@ -69,7 +69,7 @@ function ProfileUpdatePage() {
       </div>
       <div className="sideContainer">
         <img
-          src={avatar || noAvatar}
+          src={avatar[0] || currentUser.avatar || noAvatar}
           alt=""
           className="avatar"
           loading="lazy"
@@ -83,7 +83,7 @@ function ProfileUpdatePage() {
             maxImagrFileSize: 2000000,
             folder: "avatars",
           }}
-          setAvatar={setAvatar}
+          setState={setAvatar}
         />
       </div>
     </div>
