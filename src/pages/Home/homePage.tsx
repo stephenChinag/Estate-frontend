@@ -3,6 +3,7 @@ import logo from "../../assets/bg.png";
 import SearchBar from "../../components/searchBar/SearchBar";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import { useLoaderData } from "react-router-dom";
 export default function HomePage() {
   const { currentUser } = useContext(AuthContext);
 

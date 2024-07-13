@@ -1,28 +1,40 @@
-import { useState } from "react";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import "./searchBar.scss";
 import searchLog from "../../assets/search.png";
+import { Link } from "react-router-dom";
 const types = ["buy", "rent"];
 
-export default function SearchBar() {
-  const [query, setQuery] = useState({
+interface QueryState {
+  type: string;
+  city: string;
+  minPrice: number;
+  maxPrice: number;
+}
+
+const SearchBar: React.FC = () => {
+  const [query, setQuery] = useState<QueryState>({
     type: "buy",
-    location: "",
+    city: "",
     minPrice: 0,
     maxPrice: 0,
   });
 
-  const switchType = (val: any) => {
+  const switchType = (val: string) => {
     setQuery((prev) => ({ ...prev, type: val }));
     console.log(query);
   };
 
-  //
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    // const { name, value } = e.target;
+    setQuery((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
   return (
     <div className="searchBar">
       <div className="type">
-        {types.map((type) => (
+        {types.map((type, index) => (
           <button
-            key={type}
+            key={index}
             onClick={() => switchType(type)}
             className={query.type === type ? "active" : ""}
           >
@@ -31,14 +43,11 @@ export default function SearchBar() {
         ))}
       </div>
       <form>
-        <input type="text" name="location" placeholder="city Location" />
         <input
-          type="number"
-          name="minPrice"
-          min={0}
-          max={10000000}
-          placeholder="Max Price"
-          value={query.minPrice}
+          type="text"
+          name="city"
+          placeholder="city Location"
+          onChange={handleChange}
         />
         <input
           type="number"
@@ -46,12 +55,25 @@ export default function SearchBar() {
           min={0}
           max={10000000}
           placeholder="Min Price"
-          value={query.maxPrice}
+          onChange={handleChange}
         />
-        <button>
-          <img src={searchLog} alt="" />
-        </button>
+        <input
+          type="number"
+          name="maxPrice"
+          min={0}
+          max={10000000}
+          placeholder="Max Price"
+          onChange={handleChange}
+        />
+        <Link
+          to={`/list?type=${query.type}&city=${query.city}&minPrice=${query.minPrice}&maxPrice=${query.maxPrice}`}
+        >
+          <button>
+            <img src={searchLog} alt="" />
+          </button>
+        </Link>
       </form>
     </div>
   );
-}
+};
+export default SearchBar;
